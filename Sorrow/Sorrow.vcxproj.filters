@@ -27,9 +27,15 @@
     <ClInclude Include="src\Sorrow\EntryPoint.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sorrow\Log.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sorrow\Application.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sorrow\Log.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

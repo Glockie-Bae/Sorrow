@@ -5,3 +5,9 @@ bin-int/
 
 # Files
 *.user
+
+
+# git status 
+# git add* 
+# git commmit -m " "
+# git push origin main

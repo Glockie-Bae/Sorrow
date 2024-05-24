@@ -1,0 +1,3 @@
+[submodule "Sorrow/vendor/spdlog"]
+	path = Sorrow/vendor/spdlog
+	url = https://github.com/gabime/spdlog
