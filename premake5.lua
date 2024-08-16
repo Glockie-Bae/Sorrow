@@ -23,6 +23,7 @@ project "Sorrow"
 	}
 
 	includedirs{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 
