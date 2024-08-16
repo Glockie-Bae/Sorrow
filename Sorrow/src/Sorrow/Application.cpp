@@ -16,12 +16,11 @@ namespace Sorrow {
 
 	void Application::Run()
 	{
-		SW_Client_TRACE("world");
+		WindowResizeEvent e(1280, 720);
+		SW_Client_TRACE(e);
 
 		while (true)
 		{
-		WindowResizeEvent e(1280, 720);
-		SW_Client_TRACE(e);
 		}
 	}
 
