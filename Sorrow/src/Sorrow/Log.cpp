@@ -1,3 +1,4 @@
+#include"swpch.h"
 #include"Log.h"
 
 namespace Sorrow {

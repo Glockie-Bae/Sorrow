@@ -16,6 +16,9 @@ project "Sorrow"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "swpch.h"
+	pchsource "Sorrow/src/swpch.cpp"
 	
 	files{
 		"%{prj.name}/src/**.h",
