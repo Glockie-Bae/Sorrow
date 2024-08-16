@@ -4,6 +4,9 @@
     <Filter Include="Sorrow">
       <UniqueIdentifier>{D14794D1-BDE9-BEA7-A6A4-D2FB92E545F8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sorrow\Events">
+      <UniqueIdentifier>{95DE52B2-019F-CEE8-CAD9-1766365913C5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Sorrow.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Sorrow\EntryPoint.h">
       <Filter>Sorrow</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sorrow\Events\ApplicationEvent.h">
+      <Filter>Sorrow\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sorrow\Events\Event.h">
+      <Filter>Sorrow\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sorrow\Events\KeyEvent.h">
+      <Filter>Sorrow\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sorrow\Events\MouseEvent.h">
+      <Filter>Sorrow\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Sorrow\Log.h">
       <Filter>Sorrow</Filter>

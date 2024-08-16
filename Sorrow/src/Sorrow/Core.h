@@ -13,3 +13,5 @@
 	#error Sorrow only support Windows! 
 #endif // SORROW_PLATFORM_WINDOWS
 
+
+#define BIT(x) (1 << x)

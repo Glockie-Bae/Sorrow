@@ -1,5 +1,9 @@
 #include "Application.h"
 
+#include"Sorrow/Events/ApplicationEvent.h"
+#include"Sorrow/Log.h"
+
+#include<iostream>
 namespace Sorrow {
 
 	Application::Application()
@@ -12,9 +16,12 @@ namespace Sorrow {
 
 	void Application::Run()
 	{
+		SW_Client_TRACE("hello");
+
+			WindowResizeEvent e(1280, 720);
+			SW_Client_TRACE(e);
 		while (true)
 		{
-			
 		}
 	}
 
