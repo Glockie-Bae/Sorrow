@@ -18,10 +18,10 @@ namespace Sorrow {
 	{
 		SW_Client_TRACE("hello");
 
-			WindowResizeEvent e(1280, 720);
-			SW_Client_TRACE(e);
 		while (true)
 		{
+		WindowResizeEvent e(1280, 720);
+		SW_Client_TRACE(e);
 		}
 	}
 
