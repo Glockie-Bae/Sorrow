@@ -16,7 +16,7 @@ namespace Sorrow {
 
 	void Application::Run()
 	{
-		SW_Client_TRACE("hello");
+		SW_Client_TRACE("world");
 
 		while (true)
 		{
