@@ -2,6 +2,9 @@
 #include"Core.h"
 #include"Events/Event.h"
 
+#include"Window.h"
+
+
 namespace Sorrow {
 
 	class SORROW_API Application
@@ -11,8 +14,13 @@ namespace Sorrow {
 		virtual ~Application();
 
 		void Run();
+
+	private:
+		std::unique_ptr<Window> m_Window;
 	};
 
 	Application* CreateApplication();
+
+	bool m_Running = true;
 
 }

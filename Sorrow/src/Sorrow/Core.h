@@ -1,6 +1,4 @@
 #pragma once
-#include<iostream>
-
 
 #ifdef SORROW_PLATFORM_WINDOWS
 	
@@ -12,6 +10,14 @@
 #else
 	#error Sorrow only support Windows! 
 #endif // SORROW_PLATFORM_WINDOWS
+
+#ifdef SW_ENABLE_ASSERTS
+#define SW_ASSERT(x, ...) { if(!(x)) { SW_Client_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#define SW_CORE_ASSERT(x, ...) { if(!(x)) { SW_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+#define SW_ASSERT(x, ...)
+#define SW_CORE_ASSERT(x, ...)
+#endif
 
 
 #define BIT(x) (1 << x)

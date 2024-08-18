@@ -152,6 +152,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Sorrow.h" />
     <ClInclude Include="src\Sorrow\Application.h" />
     <ClInclude Include="src\Sorrow\Core.h" />
@@ -161,10 +162,11 @@
     <ClInclude Include="src\Sorrow\Events\KeyEvent.h" />
     <ClInclude Include="src\Sorrow\Events\MouseEvent.h" />
     <ClInclude Include="src\Sorrow\Log.h" />
+    <ClInclude Include="src\Sorrow\Window.h" />
     <ClInclude Include="src\swpch.h" />
-    <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Sorrow\Application.cpp" />
     <ClCompile Include="src\Sorrow\Log.cpp" />
     <ClCompile Include="src\swpch.cpp">
