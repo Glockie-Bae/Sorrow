@@ -5,6 +5,7 @@
 #include"Sorrow/Events/MouseEvent.h"
 #include"Sorrow/Events/KeyEvent.h"
 
+
 namespace Sorrow {
 	static bool s_GLFWInitialized = false;
 
@@ -45,6 +46,8 @@ namespace Sorrow {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int statua = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		SW_CORE_ASSERT(statua, "Could not intialize Glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

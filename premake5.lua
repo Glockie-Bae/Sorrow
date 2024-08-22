@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Sorrow/vendor/GLFW/include"
+IncludeDir["Glad"] = "Sorrow/vendor/Glad/include"
 
 include "Sorrow/vendor/GLFW"
+include "Sorrow/vendor/Glad"
 
 project "Sorrow"
 	location "Sorrow"
@@ -34,11 +36,13 @@ project "Sorrow"
 	includedirs{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links {
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -50,7 +54,8 @@ project "Sorrow"
 
 	defines{
 	"SORROW_PLATFORM_WINDOWS",
-	"SORROW_BUILD_DLL"
+	"SORROW_BUILD_DLL",
+	"GLFW_INCLUDE_NONE"
 
 	}
 
