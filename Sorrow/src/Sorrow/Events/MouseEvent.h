@@ -73,14 +73,14 @@ namespace Sorrow {
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class SORROW_API MouseButtonReleaseEvent : public MouseButtonEvent {
+	class SORROW_API MouseButtonReleasedEvent : public MouseButtonEvent {
 	public:
-		MouseButtonReleaseEvent(int button)
+		MouseButtonReleasedEvent(int button)
 			: MouseButtonEvent(button) {}
 
 		std::string ToString() const override{
 			std::stringstream ss;
-			ss << "MouseButtonReleaseEvent: " << m_Button;
+			ss << "MouseButtonReleasedEvent: " << m_Button;
 			return ss.str();
 		}
 
