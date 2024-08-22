@@ -60,14 +60,17 @@ project "Sorrow"
 
 	filter"configurations:Debug"
 	    defines "SW_DEBUG"
+		buildoptions "/MDd"
 	    symbols "On"
 
     filter"configurations:Release"
 	    defines "SW_RELEASE"
+		buildoptions "/MD"
 	    optimize "On"
 
 	filter"configurations:Dist"
 	    defines "SW_DIST"
+		buildoptions "/MD"
 	    optimize "On"
 
 
@@ -106,12 +109,15 @@ project "Sandbox"
 
 	filter"configurations:Debug"
 	    defines "SW_DEBUG"
+		buildoptions "/MDd"
 	    symbols "On"
 
     filter"configurations:Release"
 	    defines "SW_RELEASE"
+		buildoptions "/MD"
 	    optimize "On"
 
 	filter"configurations:Dist"
 	    defines "SW_DIST"
+		buildoptions "/MD"
 	    optimize "On"
