@@ -2,6 +2,10 @@
 
 #include"Sorrow/Core.h"
 #include"Sorrow/Events/Event.h"
+#include"Sorrow/Events/MouseEvent.h"
+#include"Sorrow/Events/KeyEvent.h"
+#include"Sorrow/Events/ApplicationEvent.h"
+
 
 namespace Sorrow
 {

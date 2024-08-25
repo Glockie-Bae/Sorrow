@@ -9,7 +9,7 @@ public:
 	}
 
 	void OnUpdate() override {
-		SW_Client_INFO("ExampleLayer::Update");
+		//SW_Client_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Sorrow::Event& e) override {
@@ -20,7 +20,8 @@ public:
 class Sandbox :public Sorrow::Application {
 public:
 	Sandbox() {
-		PuahLayer(new ExampleLayer());
+		PushLayer(new ExampleLayer());
+		PushOverlay(new Sorrow::ImGuiLayer());
 	}
 
 	~Sandbox() {
