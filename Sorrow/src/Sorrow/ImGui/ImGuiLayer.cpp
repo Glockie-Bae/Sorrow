@@ -3,7 +3,7 @@
 
 #include"imgui.h"
 #include"Platform/OpenGL/ImGuiOpenGLRenderer.h"
-#include"GLFW/glfw3.h"
+#include<GLFW/glfw3.h>
 
 #include"Sorrow/Application.h"
 

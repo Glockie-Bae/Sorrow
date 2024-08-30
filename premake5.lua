@@ -1,10 +1,16 @@
 workspace "Sorrow"
 	architecture"x64"
+	startproject "Sandbox"
 
 	configurations{
 		"Debug",
 		"Release",
 		"Dist"
+	}
+
+	flags                           --设置编译器选项
+	{
+		"MultiProcessorCompile"     --多处理器并行编译
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -15,14 +21,19 @@ IncludeDir["GLFW"] = "Sorrow/vendor/GLFW/include"
 IncludeDir["Glad"] = "Sorrow/vendor/Glad/include"
 IncludeDir["ImGui"] = "Sorrow/vendor/imgui"
 
-include "Sorrow/vendor/GLFW"
-include "Sorrow/vendor/Glad"
-include "Sorrow/vendor/imgui"
+
+group "Dependencies"
+    include "Sorrow/vendor/GLFW"
+    include "Sorrow/vendor/Glad"
+    include "Sorrow/vendor/imgui"
+group "" 
 
 project "Sorrow"
-	location "Sorrow"
-	kind "SharedLib"
-	language "C++"
+	location "Sorrow"                  --项目文件的输出目录（填写解决方案Nut之下的路径 "Sorrow/Sorrow"）
+    kind "StaticLib"                --类型（动态库）
+    language "C++"                  --语言
+    cppdialect "C++17"              --C++标准（编译时）
+    staticruntime "on"              --是否将运行时库静态链接运行时库（dll属性的文件需要关闭）
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -34,6 +45,12 @@ project "Sorrow"
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
 	}
+
+	defines
+    {
+        "_CRT_SECURE_NO_WARNINGS",
+        "GLFW_INCLUDE_NONE"
+    }
 
 	includedirs{
 		"%{prj.name}/src",
@@ -52,7 +69,6 @@ project "Sorrow"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 	
 
@@ -64,7 +80,7 @@ project "Sorrow"
 	}
 
 	postbuildcommands{
-		("{COPYDIR} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+		("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 	}
 
 	filter"configurations:Debug"
@@ -82,11 +98,12 @@ project "Sorrow"
 		buildoptions "/MD"
 	    optimize "On"
 
-
 project "Sandbox"
     location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+    staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -107,12 +124,11 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 	
 
 	    defines{
-	    "SORROW_PLATFORM_WINDOWS",
+		 "SORROW_PLATFORM_WINDOWS"
 	    }
 
 
