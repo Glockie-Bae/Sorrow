@@ -70,9 +70,7 @@ namespace Sorrow {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			float x = Input::GetMouseX();
-			float y = Input::GetMouseY();
-			SW_CORE_ERROR("{0}, {1}", x, y);
+			
 
 			m_Window->OnUpdate();	
 		}

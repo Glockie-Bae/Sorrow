@@ -173,9 +173,11 @@
     <ClInclude Include="src\Sorrow\Events\MouseEvent.h" />
     <ClInclude Include="src\Sorrow\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Sorrow\Input.h" />
+    <ClInclude Include="src\Sorrow\KeyCodes.h" />
     <ClInclude Include="src\Sorrow\Layer.h" />
     <ClInclude Include="src\Sorrow\LayerStack.h" />
     <ClInclude Include="src\Sorrow\Log.h" />
+    <ClInclude Include="src\Sorrow\MouseCodes.h" />
     <ClInclude Include="src\Sorrow\Window.h" />
     <ClInclude Include="src\swpch.h" />
   </ItemGroup>

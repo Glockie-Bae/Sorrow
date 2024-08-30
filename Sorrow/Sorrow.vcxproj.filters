@@ -74,6 +74,8 @@
       <Filter>Sorrow</Filter>
     </ClInclude>
     <ClInclude Include="src\swpch.h" />
+    <ClInclude Include="src\Sorrow\KeyCodes.h" />
+    <ClInclude Include="src\Sorrow\MouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
