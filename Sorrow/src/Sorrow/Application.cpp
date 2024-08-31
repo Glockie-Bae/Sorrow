@@ -20,6 +20,9 @@ namespace Sorrow {
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window.get()->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 
+		m_ImGuiLayer = new ImGuiLayer();
+		Sorrow::Application::PushOverlay(m_ImGuiLayer);
+
 		unsigned int id;
 		glGenVertexArrays(1, &id);
 	}
@@ -70,7 +73,10 @@ namespace Sorrow {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();	
 		}

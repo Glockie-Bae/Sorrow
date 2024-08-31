@@ -5,6 +5,7 @@
 #include"Window.h"
 
 #include"Sorrow/LayerStack.h"
+#include"Sorrow/ImGui/ImGuiLayer.h"
 
 
 namespace Sorrow {
@@ -27,6 +28,7 @@ namespace Sorrow {
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;

@@ -10,8 +10,8 @@ int main(int argc, char** argv) {
 	SW_CORE_INFO("Initialized Log");
 	SW_Client_TRACE("Hello");
 
-	std::cout << "Start Engine!" << std::endl;
 	auto app = Sorrow::CreateApplication();
+	std::cout << "Start Engine!" << std::endl;
 	app->Run();
 	delete app;
 }

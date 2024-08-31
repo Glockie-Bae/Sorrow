@@ -20,6 +20,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Sorrow/vendor/GLFW/include"
 IncludeDir["Glad"] = "Sorrow/vendor/Glad/include"
 IncludeDir["ImGui"] = "Sorrow/vendor/imgui"
+IncludeDir["glm"] = "Sorrow/vendor/glm"
 
 
 group "Dependencies"
@@ -33,7 +34,7 @@ project "Sorrow"
     kind "StaticLib"                --类型（动态库）
     language "C++"                  --语言
     cppdialect "C++17"              --C++标准（编译时）
-    staticruntime "on"              --是否将运行时库静态链接运行时库（dll属性的文件需要关闭）
+    staticruntime "off"              --是否将运行时库静态链接运行时库（dll属性的文件需要关闭）
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -43,7 +44,10 @@ project "Sorrow"
 	
 	files{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
+
 	}
 
 	defines
@@ -57,7 +61,8 @@ project "Sorrow"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links {
@@ -85,17 +90,20 @@ project "Sorrow"
 
 	filter"configurations:Debug"
 	    defines "SW_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
+		--buildoptions "/MDd"
 	    symbols "On"
 
     filter"configurations:Release"
 	    defines "SW_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
+		--buildoptions "/MD"
 	    optimize "On"
 
 	filter"configurations:Dist"
 	    defines "SW_DIST"
-		buildoptions "/MD"
+		runtime "Release"
+		--buildoptions "/MD"
 	    optimize "On"
 
 project "Sandbox"
@@ -103,7 +111,7 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
-    staticruntime "on"
+    staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -115,7 +123,9 @@ project "Sandbox"
 
 	includedirs{
 		"Sorrow/vendor/spdlog/include",
-		"Sorrow/src"
+		"%{IncludeDir.glm}",
+		"Sorrow/src",
+		"Sorrow/vendor"
 	}
 
 	links{
@@ -134,15 +144,18 @@ project "Sandbox"
 
 	filter"configurations:Debug"
 	    defines "SW_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
+		--buildoptions "/MDd"
 	    symbols "On"
 
     filter"configurations:Release"
 	    defines "SW_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
+		--buildoptions "/MD"
 	    optimize "On"
 
 	filter"configurations:Dist"
 	    defines "SW_DIST"
-		buildoptions "/MD"
+		runtime "Release"
+		--buildoptions "/MD"
 	    optimize "On"
